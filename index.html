@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layers of Knowledge - Support</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #263238;
+            background: linear-gradient(135deg, #1565C0 0%, #1976D2 30%, #2196F3 60%, #42A5F5 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 0;
+            color: white;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 20px rgba(21, 101, 192, 0.15);
+        }
+
+        .card h2 {
+            color: #1976D2;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .card p {
+            margin-bottom: 16px;
+            color: #546E7A;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .faq-item {
+            margin-bottom: 28px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid #E0E6ED;
+        }
+
+        .faq-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .faq-item h3 {
+            color: #263238;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .faq-item p {
+            margin-bottom: 0;
+            color: #546E7A;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #1976D2 0%, #2196F3 100%);
+            color: white;
+            padding: 16px 36px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(25, 118, 210, 0.4);
+        }
+
+        .contact-section {
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px 0 30px;
+            color: white;
+        }
+
+        footer p {
+            opacity: 0.9;
+            margin-bottom: 12px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+
+        footer a:hover {
+            opacity: 1;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .features-list li {
+            padding: 12px 0;
+            padding-left: 32px;
+            position: relative;
+            color: #546E7A;
+            font-size: 1rem;
+        }
+
+        .features-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #2196F3;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .highlight-box {
+            background: #F5F7FA;
+            border-left: 4px solid #2196F3;
+            padding: 20px 24px;
+            border-radius: 0 12px 12px 0;
+            margin: 24px 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            color: #263238;
+            font-weight: 500;
+        }
+
+        .schedule-intervals {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .interval-badge {
+            background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 20px;
+        }
+
+        .column-card {
+            background: #F5F7FA;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .column-card h4 {
+            color: #1976D2;
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+
+        .column-card ul {
+            list-style: none;
+        }
+
+        .column-card li {
+            color: #546E7A;
+            padding: 6px 0;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .card {
+                padding: 24px;
+            }
+
+            .two-columns {
+                grid-template-columns: 1fr;
+            }
+
+            .schedule-intervals {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Layers of Knowledge</h1>
+            <p class="tagline">Build lasting knowledge, layer by layer</p>
+        </header>
+
+        <div class="card">
+            <h2>About the App</h2>
+            <p>Layers of Knowledge is an intelligent spaced repetition app built on the science of the Ebbinghaus Forgetting Curve. Transform how you remember information with perfectly timed review reminders.</p>
+            
+            <div class="highlight-box">
+                <p>Studies show we forget up to 70% of new information within 24 hours. Our scientifically optimized schedule fights this by prompting reviews at proven intervals.</p>
+            </div>
+
+            <p><strong>Review Schedule Intervals:</strong></p>
+            <div class="schedule-intervals">
+                <span class="interval-badge">Day 1</span>
+                <span class="interval-badge">Day 3</span>
+                <span class="interval-badge">Day 7</span>
+                <span class="interval-badge">Day 14</span>
+                <span class="interval-badge">Day 30</span>
+                <span class="interval-badge">Day 90</span>
+                <span class="interval-badge">Day 180</span>
+            </div>
+
+            <ul class="features-list">
+                <li>Layered learning with hidden content for self-quizzing</li>
+                <li>Smart notification scheduling</li>
+                <li>Flexible preset and custom learning schedules</li>
+                <li>Pause and resume learning anytime</li>
+                <li>Relearn completed items when you need a refresher</li>
+                <li>Color-coded tags for powerful organization</li>
+                <li>Full data export and import</li>
+                <li>Multilingual support (English, French, Arabic)</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>What Can You Learn?</h2>
+            <p>The possibilities are endless. If you need to remember it, Layers of Knowledge helps you retain it forever.</p>
+            
+            <div class="two-columns">
+                <div class="column-card">
+                    <h4>Academic</h4>
+                    <ul>
+                        <li>Exam material</li>
+                        <li>Vocabulary</li>
+                        <li>Historical facts</li>
+                        <li>Scientific concepts</li>
+                    </ul>
+                </div>
+                <div class="column-card">
+                    <h4>Professional</h4>
+                    <ul>
+                        <li>Industry knowledge</li>
+                        <li>Certifications</li>
+                        <li>Names and faces</li>
+                        <li>Key procedures</li>
+                    </ul>
+                </div>
+                <div class="column-card">
+                    <h4>Personal</h4>
+                    <ul>
+                        <li>Travel phrases</li>
+                        <li>Important dates</li>
+                        <li>Inspiring quotes</li>
+                        <li>Poetry</li>
+                    </ul>
+                </div>
+                <div class="column-card">
+                    <h4>Everyday</h4>
+                    <ul>
+                        <li>Trivia</li>
+                        <li>Cultural knowledge</li>
+                        <li>Life skills</li>
+                        <li>And much more...</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <h3>How does spaced repetition work?</h3>
+                <p>Spaced repetition shows you information at increasing intervals (1, 3, 7, 14, 30, 90, and 180 days). This timing is optimized based on the Ebbinghaus Forgetting Curve to help transfer knowledge from short-term to long-term memory.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Can I create my own review schedule?</h3>
+                <p>Yes! While we provide scientifically-backed preset schedules, you can create custom schedules with your own intervals. Define exactly when you want to be reminded – whether it's days, weeks, or months apart. Each schedule can have unlimited layers.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>What happens when I pause notifications?</h3>
+                <p>When you pause, all notifications are suspended. When you resume, your pending reviews are automatically rescheduled from that moment, preserving your progress without losing any items.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How do I transfer my data to a new device?</h3>
+                <p>Use the Export feature in Settings to download your entire knowledge base as a JSON file. On your new device, use the Import feature to restore all your items, tags, and schedules.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Is my data private?</h3>
+                <p>Absolutely. All your data stays on your device. We don't require an account, don't collect any personal information, and don't have access to your knowledge items.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Can I relearn something I've already completed?</h3>
+                <p>Yes! Use the Relearn feature to restart any item's review cycle from the beginning. This is perfect for information that needs reinforcement or topics you want to revisit.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>What languages are supported?</h3>
+                <p>Layers of Knowledge fully supports English, French, and Arabic content, including proper right-to-left text handling for Arabic and diacritics-aware search for French characters.</p>
+            </div>
+        </div>
+
+        <div class="card contact-section">
+            <h2>Need Help?</h2>
+            <p>We're here to help! If you have questions, feedback, or need assistance, please reach out to us.</p>
+            <br>
+            <a href="mailto:YOUR_EMAIL@example.com" class="contact-btn">Contact Support</a>
+        </div>
+
+        <footer>
+            <p>© 2025 Layers of Knowledge. All rights reserved.</p>
+            <p><a href="privacy.html">Privacy Policy</a></p>
+        </footer>
+    </div>
+</body>
+</html>
